@@ -5,12 +5,11 @@ import './login.css';
 import { usePathname } from 'next/navigation';
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {
   const pathname= usePathname();
-  if(pathname=="/login"){
-    return <>{children}</>;
-  }
+ console.log("Current Pathname:", pathname);
 
   return (
     <div className="login-menu">
+        {pathname !== "/login/loginTeacher" ? (
         <ul>
           <li>
             <h4>Login Menu</h4>
@@ -28,6 +27,7 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
             <Link href="/login/loginTeacher">Teacher</Link>
           </li>
         </ul>
+        ) : null}
         {children}
     </div>
   )
